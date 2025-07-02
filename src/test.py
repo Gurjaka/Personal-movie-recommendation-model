@@ -1,38 +1,35 @@
-from train import Model
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
+from utils import ContentModel, DataHandler
 
-class Evaluator:
-    @staticmethod
-    def evaluate(model: dict, test_size=0.2):
-        # Prepare data
-        X = model['matrix']
-        X_train, X_test = train_test_split(X, test_size=test_size, random_state=42)
-        
-        # Re-train model
-        sim_matrix = cosine_similarity(X_train)
-        
-        # Calculate RMSE
-        predictions = []
-        actuals = []
-        
-        for user_id in X_test.index:
-            try:
-                # Get actual ratings
-                user_ratings = X_test.loc[user_id]
-                rated_movies = user_ratings[user_ratings > 0].index
-                
-                # Predict ratings
-                preds = Model.recommend(user_id, {'matrix': X_train, 'similarity': sim_matrix}, top_n=len(rated_movies))
-                
-                # Collect results
-                for movie in rated_movies:
-                    if movie in preds:
-                        predictions.append(preds[movie])
-                        actuals.append(user_ratings[movie])
-            except KeyError:
-                continue
-        
-        rmse = np.sqrt(mean_squared_error(actuals, predictions))
-        return rmse
+def test_recommendations():
+    # Load data
+    data_handler = DataHandler("data/")
+    movies, _ = data_handler.load_data("movies.csv", "ratings.csv")
+    movies = data_handler.preprocess_movies(movies)
+
+    # Create test user preferences
+    test_cases = [
+        {"The Shawshank Redemption": 5, "The Godfather": 4.5},
+        {"Toy Story": 5, "Finding Nemo": 4},
+        {"Inception": 5, "The Matrix": 4.5}
+    ]
+
+    # Test content model
+    content_model = ContentModel(movies)
+    for i, preferences in enumerate(test_cases):
+        print(f"\nTest Case {i+1}:")
+        recs = content_model.content_recommendations(preferences)
+        print(recs.head(5))
+
+    # Test hybrid model if available
+    try:
+        import joblib
+        hybrid_model = joblib.load("hybrid_model.joblib")
+        for i, preferences in enumerate(test_cases):
+            print(f"\nHybrid Test Case {i+1}:")
+            recs = hybrid_model.hybrid_recommend(preferences)
+            print(recs.head(5))
+    except:
+        print("\nHybrid model not available for testing")
+
+if __name__ == "__main__":
+    test_recommendations()

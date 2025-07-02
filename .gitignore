@@ -2,3 +2,6 @@ __pycache__/
 .envrc/
 .direnv/
 *.csv
+*.joblib
+.gradio
+*.npy

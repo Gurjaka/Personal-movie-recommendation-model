@@ -27,6 +27,7 @@
             seaborn
             scikit-learn
             gradio
+            faiss
           ];
       in {
         default =
