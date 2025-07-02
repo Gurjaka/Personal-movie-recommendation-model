@@ -26,6 +26,7 @@
             matplotlib
             seaborn
             scikit-learn
+            gradio
           ];
       in {
         default =
