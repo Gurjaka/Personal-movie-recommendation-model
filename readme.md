@@ -1,7 +1,13 @@
-# 🎬 Personalized Movie Recommendation System
+<div align="center">
 
-> **Final Project** for the **TBC x Geolab Bootcamp**
-> A smart, personalized movie recommendation system that suggests films tailored to each user's unique taste.
+<img alt="TBC-Logo" src="assets/tbc-logo.png" width="140px"/>
+
+# <samp>🎬 Personalized Movie Recommendation System</samp>
+
+<samp>**Final Project** for the **TBC x Geolab Bootcamp**
+A smart, personalized movie recommendation system that suggests films tailored to each user's unique taste.</samp>
+
+</div>
 
 ---
 
