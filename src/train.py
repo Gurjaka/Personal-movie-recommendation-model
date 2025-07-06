@@ -203,4 +203,4 @@ def load_hybrid_model():
     return joblib.load("hybrid_model.joblib")
 
 if __name__ == "__main__":
-    train_model(
+    train_model()
