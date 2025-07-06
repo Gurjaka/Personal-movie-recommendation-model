@@ -78,13 +78,24 @@ Make sure to download and place the files (`movies.csv`, `ratings.csv`, etc.) in
 
 ### Usage
 
-Run the main program:
+**Train the model, and dump as `hypbrid_model.joblib`:**
+```bash
+python src/train.py
+```
 
+**Run the main program (Gradio interface):**
 ```bash
 python src/main.py
 ```
 
 This will load data, build user profiles, and output personalized movie recommendations based on input preferences.
+
+**Optional, generatie visualizations**
+```bash
+python src/visualize.py
+```
+
+> Note: there are some optional debugging test files that you can run in src/.
 
 ---
 
