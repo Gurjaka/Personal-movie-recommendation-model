@@ -7,13 +7,35 @@ from scipy.sparse import csr_matrix
 from utils import DataHandler, ContentModel
 
 class HybridModel:
+    """
+    A hybrid recommendation system combining content-based and collaborative filtering.
+
+    This class implements a hybrid approach that leverages both content-based filtering
+    (using movie genres) and collaborative filtering (using user-item interactions).
+    It uses FAISS for efficient similarity search in the collaborative filtering component
+    and combines recommendations from both approaches.
+    """
+    
     def __init__(self, movies: pd.DataFrame, ratings: pd.DataFrame):
+        """
+        Initialize the hybrid recommendation model.
+
+        Sets up the hybrid model by creating sparse matrices for collaborative filtering,
+        training the FAISS index, and preparing all necessary mappings.
+        """
         self.movies = movies
         self.ratings = ratings
         self.sparse_matrix, self.user_mapper, self.movie_mapper = self._create_sparse_matrix()
         self.model = self._train_model()
 
     def _create_sparse_matrix(self):
+        """
+        Create a sparse user-item rating matrix with ID mappings.
+
+        This private method processes the ratings data to create:
+        1. A sparse matrix representation of user-item interactions
+        2. Mappings from user/movie IDs to matrix indices
+        """
         # Create mappings
         user_ids = self.ratings['userId'].unique()
         movie_ids = self.ratings['movieId'].unique()
@@ -33,6 +55,14 @@ class HybridModel:
         return sparse_matrix, user_mapper, movie_mapper
 
     def _train_model(self):
+        """
+        Train the FAISS index for collaborative filtering similarity search.
+
+        This private method prepares the collaborative filtering component by:
+        1. Converting sparse matrix to dense format
+        2. Normalizing vectors using L2 normalization
+        3. Creating and training a FAISS index for fast similarity search
+        """
         dense_matrix = self.sparse_matrix.toarray().astype('float32')
         faiss.normalize_L2(dense_matrix)
         index = faiss.IndexFlatIP(dense_matrix.shape[1])
@@ -41,12 +71,26 @@ class HybridModel:
         return index
 
     def find_closest_title(self, input_title: str) -> str | None:
+        """
+        Find the closest matching movie title using fuzzy string matching.
+
+        This method handles typos and variations in movie titles by finding
+        the most similar title in the movies database using sequence matching.
+        """
         titles = self.movies['title'].tolist()
         matches = difflib.get_close_matches(input_title, titles, n=1, cutoff=0.6)
         return matches[0] if matches else None
 
     def hybrid_recommend(self, user_ratings: dict, content_weight=0.4, top_n=5) -> pd.DataFrame:
-        """Hybrid content + collaborative filtering"""
+        """
+        Generate hybrid recommendations combining content-based and collaborative filtering.
+
+        This method implements a hybrid recommendation approach that:
+        1. Generates content-based recommendations using movie genres
+        2. Creates collaborative filtering recommendations using user similarity
+        3. Combines both approaches to provide diverse, high-quality recommendations
+        4. Handles fuzzy matching for movie titles to improve usability
+        """
         print(f"Debug: Input user_ratings: {user_ratings}")
 
         # Content-based recommendations
@@ -114,6 +158,18 @@ class HybridModel:
             return pd.DataFrame(columns=['title', 'genres'])
 
 def train_model():
+    """
+    Train and save the hybrid recommendation model.
+
+    This function orchestrates the complete model training process:
+    1. Loads movie and rating data from CSV files
+    2. Applies data preprocessing and downsampling for performance
+    3. Trains the hybrid model combining content-based and collaborative filtering
+    4. Saves the trained model to disk using joblib
+
+    The function performs data downsampling to improve training speed and memory usage
+    by selecting the top 20,000 most active users and top 10,000 most rated movies.
+    """
     # Initialize data handler
     data_handler = DataHandler("data/")
 
@@ -136,10 +192,15 @@ def train_model():
     print("Hybrid model trained and saved!")
 
 def load_hybrid_model():
-    """Helper function to load the hybrid model with proper class reference"""
+    """
+    Load a pre-trained hybrid recommendation model from disk.
+
+    This helper function loads a previously saved hybrid model using joblib,
+    ensuring proper class reference resolution for successful deserialization.
+    """
     import __main__
     __main__.HybridModel = HybridModel
     return joblib.load("hybrid_model.joblib")
 
 if __name__ == "__main__":
-    train_model()
+    train_model(
