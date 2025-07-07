@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img alt="TBC-Logo" src="/assets/tbc-logo.png" width="140px"/>
+<img alt="TBC-Logo" src="../assets/tbc-logo.png" width="140px"/>
 
 <h3> 🎬 Personalized Movie Recommendation System </h3>
 
