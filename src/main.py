@@ -26,6 +26,7 @@ def format_recommendations_markdown(df: pd.DataFrame) -> str:
     in Markdown-compatible interfaces or documentation.
 
     Example:
+        ```
         >>> df = pd.DataFrame({
         ...     'title': ['The Matrix', 'Inception'],
         ...     'genres': [['Action', 'Sci-Fi'], ['Action', 'Thriller']]
@@ -35,6 +36,7 @@ def format_recommendations_markdown(df: pd.DataFrame) -> str:
         |-------|--------|
         | The Matrix | Action, Sci-Fi |
         | Inception | Action, Thriller |
+        ```
     """
     if df.empty:
         return "No recommendations found."
@@ -55,6 +57,7 @@ def format_recommendations(df: pd.DataFrame) -> str:
     in the Gradio interface output.
 
     Example:
+        ```
         >>> df = pd.DataFrame({
         ...     'title': ['The Matrix', 'Inception'],
         ...     'genres': [['Action', 'Sci-Fi'], ['Action', 'Thriller']]
@@ -65,6 +68,7 @@ def format_recommendations(df: pd.DataFrame) -> str:
 
         🎬 Inception
            📂 Genres: Action, Thriller
+        ```
     """
     if df.empty:
         return "No recommendations found."

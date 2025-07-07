@@ -1,50 +1,56 @@
 <div align="center">
 
-<img alt="TBC-Logo" src="docs/assets/tbc-logo.png" width="140px"/>
+<img alt="TBC Logo" src="docs/assets/tbc-logo.png" width="140" />
 
-# <samp>🎬 Personalized Movie Recommendation System</samp>
+# 🎬 Personalized Movie Recommendation System
 
-<samp>**Final Project** for the **TBC x Geolab Bootcamp**
-A smart, personalized movie recommendation system that suggests films tailored to each user's unique taste.</samp>
+**Final Project** for the **TBC x Geolab Bootcamp**  
+A smart, personalized movie recommendation system that suggests films tailored to each user's unique taste.
 
 </div>
+
+<p align="center">
+<a href="https://gurjaka.github.io/Personal-movie-recommendation-model/" target="_blank">📚 View Documentation</a>
+</p>
 
 ---
 
 ## 📂 Project Structure
 
 ```
+
 TBC-Final/
 ├── data/               # Dataset CSV files (movies.csv, ratings.csv, etc.)
 ├── src/                # Source code
 │   ├── main.py         # Main entry point
-│   ├── train.py        # (Optional) Model training scripts
-│   ├── utils.py        # Utility functions for data handling
-│   └── test.py         # (Optional) Test scripts
+│   ├── train.py        # Model training scripts
+│   ├── utils.py        # Utility functions
+│   └── test.py         # Unit and debugging tests
 ├── .envrc              # Environment config (direnv)
 ├── .gitignore          # Git ignore rules
 ├── flake.nix           # Nix shell configuration
 └── flake.lock          # Nix lock file
-```
+
+````
 
 ---
 
-## 📥 Where to Get the Dataset
+## 📥 Dataset
 
-You can download the required datasets from Kaggle:
-[Movie Recommendation System Dataset](https://www.kaggle.com/datasets/parasharmanas/movie-recommendation-system)
+Download the required datasets from Kaggle:  
+[Movie Recommendation System Dataset](https://www.kaggle.com/datasets/parasharmanas/movie-recommendation-system)  
 
-Make sure to download and place the files (`movies.csv`, `ratings.csv`, etc.) inside the `data/` folder
+Place the files (`movies.csv`, `ratings.csv`, etc.) inside the `data/` folder.
 
 ---
 
 ## ✨ Features
 
-* 📊 Efficient loading and merging of movie metadata and user ratings
-* 👤 Builds personalized user profiles from favorite movies, genres, and rating timestamps
-* 🔍 Finds users with similar tastes for collaborative recommendations
-* 🎯 Recommends highly rated movies from similar users that the target user hasn’t seen
-* 🤝 Combines content-based filtering (genres) with collaborative filtering (user similarity) for hybrid recommendations
+- 📊 Efficient loading and merging of movie metadata and user ratings  
+- 👤 Builds personalized user profiles based on favorite movies, genres, and rating timestamps  
+- 🔍 Finds users with similar tastes for collaborative recommendations  
+- 🎯 Recommends highly rated movies from similar users that the target user hasn’t seen  
+- 🤝 Combines content-based (genres) and collaborative filtering (user similarity) for hybrid recommendations
 
 ---
 
@@ -52,52 +58,69 @@ Make sure to download and place the files (`movies.csv`, `ratings.csv`, etc.) in
 
 ### Prerequisites
 
-* Python 3.8+
-* Key packages:
-
-  * pandas
-  * numpy
-  * scikit-learn (for similarity calculations)
-  * requests (optional, for TMDB API integration)
+- Python 3.8+  
+- Key Python packages:  
+  - pandas  
+  - numpy  
+  - scikit-learn (for similarity calculations)  
+  - requests (optional, for TMDB API integration)  
 
 ### Installation
 
-1. Clone this repo
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Gurjaka/Personal-movie-recommendation-model.git
+   cd Personal-movie-recommendation-model
+   ```
+
 2. Install dependencies:
+
+   Using pip:
 
    ```bash
    pip install -r requirements.txt
    ```
-   
-   > or if you use nix flakes:
+
+   Or if you use Nix flakes:
+
    ```bash
    nix develop
    ```
 
-3. Place your datasets (`movies.csv`, `ratings.csv`) inside the `data/` directory.
+3. Add datasets (`movies.csv`, `ratings.csv`) to the `data/` directory.
+
+---
 
 ### Usage
 
-**Train the model, and dump as `hypbrid_model.joblib`:**
-```bash
-python src/train.py
-```
+* Train the model and save as `hybrid_model.joblib`:
 
-**Run the main program (Gradio interface):**
-```bash
-python src/main.py
-```
+  ```bash
+  python src/train.py
+  ```
 
-This will load data, build user profiles, and output personalized movie recommendations based on input preferences.
+* Run the main application (Gradio interface):
 
-**Optional, generatie visualizations**
-```bash
-python src/visualize.py
-```
+  ```bash
+  python src/main.py
+  ```
 
-> Note: there are some optional debugging test files that you can run in src/.
+  This will load data, build user profiles, and provide personalized movie recommendations.
+
+* (Optional) Generate visualizations:
+
+  ```bash
+  python src/visualize.py
+  ```
+
+---
+
+> **Note:** Additional debugging and test scripts are available in the `src/` directory.
 
 ---
 
 ## 📄 License
-MIT Licensed – See [LICENSE](LICENSE) for details
+
+MIT Licensed — see [LICENSE](LICENSE) for details.
+

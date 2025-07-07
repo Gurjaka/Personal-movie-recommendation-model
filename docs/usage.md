@@ -2,6 +2,12 @@
 
 ### 📋 Prerequisites
 
+---
+> Note: this model creates sparse matrixes, and can be heavy for ram!
+>
+> Recommended ram for deployment system is at least 32GB!
+---
+
 Before running the Personal Movie Recommender, ensure you have the following installed:
 
 * **🐍 Python 3.8+** (Your nix shell provides Python 3)
@@ -14,9 +20,6 @@ Before running the Personal Movie Recommender, ensure you have the following ins
   * `scikit-learn` — for similarity calculations and machine learning
   * `gradio` — for the interactive web interface
   * `faiss` — efficient similarity search library
-  * `mkdocs` — for building documentation website
-  * `mkdocs-material` — Material Design theme for MkDocs
-  * `mkdocstrings-python` — for generating API documentation from Python docstrings
 
 ---
 
@@ -46,7 +49,7 @@ Before running the Personal Movie Recommender, ensure you have the following ins
    - `movies.csv` - movie metadata (title, genres, year, etc.)
    - `ratings.csv` - user ratings data
    
-   You can obtain these datasets from [Kaggle: Movie Recommendation System Dataset](https://www.kaggle.com/datasets/example).
+   You can obtain these datasets from [Kaggle: Movie Recommendation System Dataset](https://www.kaggle.com/datasets/parasharmanas/movie-recommendation-system).
 
 ### 🎯 Usage
 

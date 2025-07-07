@@ -60,4 +60,4 @@ Make sure to download and place the files (`movies.csv`, `ratings.csv`, etc.) in
 Check the [Usage Guide](usage.md) to get started.
 
 ## 📄 License
-MIT Licensed – See [LICENSE](../LICENSE) for details
+MIT Licensed – See [LICENSE](https://github.com/Gurjaka/Personal-movie-recommendation-model/blob/main/LICENSE) for details
