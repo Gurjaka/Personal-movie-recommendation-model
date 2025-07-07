@@ -59,5 +59,13 @@ Make sure to download and place the files (`movies.csv`, `ratings.csv`, etc.) in
 ## 🚀 Getting Started
 Check the [Usage Guide](usage.md) to get started.
 
+## 📌 Branding Notice
+
+This project was created as part of the **TBC x Geolab Bootcamp**.  
+The **TBC logo** and related branding are owned by their respective entities and may not be reused, modified, or redistributed without permission.
+
+Feel free to fork or use the code under the terms of the MIT license — but **do not use the TBC logo or project branding** in your own versions or hosted apps.
+
+
 ## 📄 License
 MIT Licensed – See [LICENSE](https://github.com/Gurjaka/Personal-movie-recommendation-model/blob/main/LICENSE) for details
