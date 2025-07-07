@@ -34,15 +34,9 @@ Before running the Personal Movie Recommender, ensure you have the following ins
 
 2. **⚙️ Install dependencies:**
    
-   Using pip:
-   ```bash
-   pip install -r requirements.txt
-   ```
+   Using pip: `pip install -r requirements.txt`
    
-   Or if you use Nix flakes:
-   ```bash
-   nix develop
-   ```
+   Or if you use Nix flakes: `nix develop`
 
 3. **📊 Prepare your data:**
    
@@ -56,11 +50,7 @@ Before running the Personal Movie Recommender, ensure you have the following ins
 
 #### 1. 🧠 Train the Recommendation Model
 
-First, train the hybrid recommendation model:
-
-```bash
-python src/train.py
-```
+First, train the hybrid recommendation model: `python src/train.py`
 
 This will:
 - 📖 Load and preprocess the movie and ratings data
@@ -69,9 +59,7 @@ This will:
 
 #### 2. 🛠️ Run the Data Debugger
 
-```bash
-python src/data_debug.py
-```
+Next let's run debugger to inspect the dataset: `python src/data_debug.py`
 
 This script will help you inspect and verify your dataset. It will:
 - 📐 Print the shape (rows × columns) of the raw movies.csv and ratings.csv
@@ -84,9 +72,7 @@ Use this to ensure your dataset is correctly formatted and loaded before trainin
 
 #### 3. ✅ Run a Basic Test Before Deployment
 
-```bash
-python src/simple_test.py
-```
+Now, let's confirm the model works properly before launching the app: `python src/simple_test.py`
 
 This script performs a sanity check to confirm the model is functioning. It will:
 - 🧠 Load the model and required similarity data
@@ -98,11 +84,7 @@ Run this after training to confirm everything works as expected before launching
 
 #### 4. 🌐 Launch the Web Interface
 
-Start the Gradio web application:
-
-```bash
-python src/main.py
-```
+Start the Gradio web application: `python src/main.py`
 
 This will:
 - 🚀 Load the trained model
