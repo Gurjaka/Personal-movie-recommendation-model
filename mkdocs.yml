@@ -1,4 +1,6 @@
 site_name: Personal Movie Recommender
+site_description: A smart hybrid movie recommendation system built with Python & Gradio
+site_author: Gurami Esartia
 repo_url: https://github.com/Gurjaka/Personal-movie-recommendation-model
 
 theme:
@@ -21,6 +23,10 @@ theme:
     - content.action.edit
     - navigation.sections
     - navigation.expand
+    - navigation.footer
+
+extra:
+  generator: false
 
 extra_css:
   - stylesheets/nord.css
@@ -39,6 +45,7 @@ plugins:
 
 nav:
   - Home: index.md
+  - About: about.md
   - Usage: usage.md
   - API Reference:
       - Main: reference/main.md

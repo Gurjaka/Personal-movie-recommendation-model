@@ -13,6 +13,13 @@ A smart, personalized movie recommendation system that suggests films tailored t
 <a href="https://gurjaka.github.io/Personal-movie-recommendation-model/" target="_blank">📚 View Documentation</a>
 </p>
 
+## 🙌 Team
+
+This project was developed as part of the **TBC x Geolab Bootcamp**.
+
+- 👨‍💻 **[Gurjaka](https://github.com/Gurjaka)** – Core development, design, documentation
+- 🤝 **[Lol0kv28](https://github.com/Lol0kv28)** – Initial collaboration and feedback
+
 ---
 
 ## 📂 Project Structure
