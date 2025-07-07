@@ -10,7 +10,8 @@
 
 Before running the Personal Movie Recommender, ensure you have the following installed:
 
-* **🐍 Python 3.8+** (Your nix shell provides Python 3)
+* **💻 [WSL (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/about)** this is necessary for [faiss](https://github.com/facebookresearch/faiss) library. (only works on linux & macos)
+* **🐍 Python 3.8+** (Nix shell provides Python 3.13)
 * **📦 Required packages:**
 
   * `pip` — Python package installer
