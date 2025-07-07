@@ -154,7 +154,7 @@ def test_recommendations():
 with gr.Blocks() as demo:
     # upload TBC-Logo
     gr.Image(
-        value="assets/tbc-logo.png", 
+        value="docs/assets/tbc-logo.png", 
         interactive=False, 
         show_label=False, 
         height=120, 
