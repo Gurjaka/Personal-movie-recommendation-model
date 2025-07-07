@@ -147,26 +147,39 @@ def test_recommendations():
         print(f"RESULT:\n{result}")
 
 # Gradio interface
-iface = gr.Interface(
-    fn=recommend_movies,
-    inputs=gr.Textbox(
-        label="Movies You Like", 
-        placeholder="The Shawshank Redemption, The Godfather, Inception",
-        lines=3
-    ),
-    outputs=gr.Textbox(label="Recommended Movies"),
-    concurrency_limit=1,
-    title="Personal Movie Recommender",
-    description="Enter movies you like separated by commas (we'll assume you rate them highly!)",
-    examples=[
-        ["The Dark Knight, Inception, Interstellar"],
-        ["Toy Story, Finding Nemo, Shrek"],
-        ["The Shawshank Redemption, Forrest Gump, Pulp Fiction"]
-    ]
-)
+with gr.Blocks() as demo:
+    # upload TBC-Logo
+    gr.Image(
+        value="assets/tbc-logo.png", 
+        interactive=False, 
+        show_label=False, 
+        height=120, 
+        width=120,
+        show_download_button=False,
+        show_fullscreen_button=False,
+    )
+
+    # model interface
+    gr.Interface(
+        fn=recommend_movies,
+        inputs=gr.Textbox(
+            label="Movies You Like", 
+            placeholder="The Shawshank Redemption, The Godfather, Inception",
+            lines=3
+        ),
+        outputs=gr.Textbox(label="Recommended Movies"),
+        concurrency_limit=1,
+        title="Personal Movie Recommender",
+        description='<div align="center">Enter movies you like separated by commas (we\'ll assume you rate them highly!</div>',
+        examples=[
+            ["The Dark Knight, Inception, Interstellar"],
+            ["Toy Story, Finding Nemo, Shrek"],
+            ["The Shawshank Redemption, Forrest Gump, Pulp Fiction"]
+        ]
+    )
 
 if __name__ == "__main__":
     """Main execution block for the Gradio movie recommendation application"""
     # Then launch Gradio
     print("\nLaunching Gradio interface...")
-    iface.launch(share=True)
+    demo.launch(share=True)
