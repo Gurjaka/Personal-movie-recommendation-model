@@ -67,7 +67,36 @@ This will:
 - 🔧 Build collaborative filtering and content-based models
 - 💾 Save the trained model as `hybrid_model.joblib`
 
-#### 2. 🌐 Launch the Web Interface
+#### 2. 🛠️ Run the Data Debugger
+
+```bash
+python src/data_debug.py
+```
+
+This script will help you inspect and verify your dataset. It will:
+- 📐 Print the shape (rows × columns) of the raw movies.csv and ratings.csv
+- 📝 Show the first 5 entries from each dataset
+- 🧾 List all columns in the movies.csv file
+- 🔄 Preprocess and clean the movie data
+- 📊 Display genre distribution and perform basic genre analysis
+
+Use this to ensure your dataset is correctly formatted and loaded before training.
+
+#### 3. ✅ Run a Basic Test Before Deployment
+
+```bash
+python src/simple_test.py
+```
+
+This script performs a sanity check to confirm the model is functioning. It will:
+- 🧠 Load the model and required similarity data
+- ⚙️ Generate the cosine_sim.npy file (if it doesn't already exist) — this precomputed similarity matrix helps reduce RAM usage and speed up recommendations
+- 🎬 Run the model on a few predefined test cases
+- 🖨️ Print out sample recommendations to the terminal
+
+Run this after training to confirm everything works as expected before launching the interface.
+
+#### 4. 🌐 Launch the Web Interface
 
 Start the Gradio web application:
 
@@ -82,7 +111,7 @@ This will:
 
 The interface will be available at `http://localhost:7860` by default.
 
-#### 3. 📈 Generate Visualizations (Optional)
+#### 5. 📈 Generate Visualizations (Optional)
 
 Create data visualizations and analysis charts:
 
