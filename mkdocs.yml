@@ -46,6 +46,7 @@ plugins:
 nav:
   - Home: index.md
   - About: about.md
+  - Report: report.md
   - Usage: usage.md
   - API Reference:
       - Main: reference/main.md
