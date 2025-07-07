@@ -1,11 +1,19 @@
 <div align="center">
 
-<img alt="TBC-Logo" src="docs/assets/tbc-logo.png" width="140px"/>
+<img alt="TBC-Logo" src="assets/tbc-logo.png" width="140px"/>
 
-# <samp>🎬 Personalized Movie Recommendation System</samp>
+<h1>🎬 Personalized Movie Recommendation System</h1>
+<strong>Final Project</strong> for the <strong>TBC x Geolab Bootcamp</strong><br>
+A smart, personalized movie recommendation system that suggests films tailored to each user's unique taste.
 
-<samp>**Final Project** for the **TBC x Geolab Bootcamp**
-A smart, personalized movie recommendation system that suggests films tailored to each user's unique taste.</samp>
+<br><br>
+
+<a href="https://www.python.org">
+  <img src="https://img.shields.io/badge/python-3.8%2B-blue" alt="Python 3.8+"/>
+</a>
+<a href="LICENSE">
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License"/>
+</a>
 
 </div>
 
@@ -14,7 +22,7 @@ A smart, personalized movie recommendation system that suggests films tailored t
 ## 📂 Project Structure
 
 ```
-TBC-Final/
+Personal-Movie-Recommendation-System/
 ├── data/               # Dataset CSV files (movies.csv, ratings.csv, etc.)
 ├── src/                # Source code
 │   ├── main.py         # Main entry point
@@ -49,55 +57,7 @@ Make sure to download and place the files (`movies.csv`, `ratings.csv`, etc.) in
 ---
 
 ## 🚀 Getting Started
-
-### Prerequisites
-
-* Python 3.8+
-* Key packages:
-
-  * pandas
-  * numpy
-  * scikit-learn (for similarity calculations)
-  * requests (optional, for TMDB API integration)
-
-### Installation
-
-1. Clone this repo
-2. Install dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-   
-   > or if you use nix flakes:
-   ```bash
-   nix develop
-   ```
-
-3. Place your datasets (`movies.csv`, `ratings.csv`) inside the `data/` directory.
-
-### Usage
-
-**Train the model, and dump as `hypbrid_model.joblib`:**
-```bash
-python src/train.py
-```
-
-**Run the main program (Gradio interface):**
-```bash
-python src/main.py
-```
-
-This will load data, build user profiles, and output personalized movie recommendations based on input preferences.
-
-**Optional, generatie visualizations**
-```bash
-python src/visualize.py
-```
-
-> Note: there are some optional debugging test files that you can run in src/.
-
----
+Check the [Usage Guide](usage.md) to get started.
 
 ## 📄 License
-MIT Licensed – See [LICENSE](LICENSE) for details
+MIT Licensed – See [LICENSE](../LICENSE) for details

@@ -28,6 +28,9 @@
             scikit-learn
             gradio
             faiss
+            mkdocs
+            mkdocs-material
+            mkdocstrings-python
           ];
       in {
         default =
